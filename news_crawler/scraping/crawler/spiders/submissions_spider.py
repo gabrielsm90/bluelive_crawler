@@ -1,5 +1,5 @@
 import scrapy
-from news_crawler.items import SubmissionItem
+from scraping.crawler.items import SubmissionItem
 
 class SubmissionsSpider(scrapy.Spider):
 

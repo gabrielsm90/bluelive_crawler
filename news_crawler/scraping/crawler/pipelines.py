@@ -2,6 +2,7 @@
 
 import pymongo
 
+
 class MongoWriterPipeline(object):
 
     collection_name = 'submissions'

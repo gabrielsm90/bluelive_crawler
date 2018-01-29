@@ -1,6 +1,6 @@
 
 import pytest
-from news_crawler.spiders.submissions_spider import SubmissionsSpider
+from scraping.crawler.spiders.submissions_spider import SubmissionsSpider
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from twisted.python.failure import Failure

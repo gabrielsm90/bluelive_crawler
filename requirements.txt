@@ -10,3 +10,4 @@ service_identity
 parsel>=1.1
 Scrapy
 pytest
+pymongo
