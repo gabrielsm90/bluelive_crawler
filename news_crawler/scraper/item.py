@@ -2,7 +2,6 @@
 
 import scrapy
 
-
 class SubmissionItem(scrapy.Item):
     title = scrapy.Field()
     external_url = scrapy.Field()

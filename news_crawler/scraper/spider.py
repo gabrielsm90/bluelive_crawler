@@ -1,9 +1,15 @@
 import scrapy
-from scraping.crawler.items import SubmissionItem
+from scraper.item import SubmissionItem
 
 class SubmissionsSpider(scrapy.Spider):
 
     name = "submissions"
+
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'scraper.pipeline.MongoWriterPipeline': 200
+        }
+    }
 
     def __init__(self, n):
         if not isinstance(n, int):
