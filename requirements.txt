@@ -11,3 +11,4 @@ parsel>=1.1
 Scrapy
 pytest
 pymongo
+flask

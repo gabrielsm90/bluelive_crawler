@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import scrapy
 from scraper.item import SubmissionItem
 
@@ -26,9 +28,9 @@ class SubmissionsSpider(scrapy.Spider):
                 external_url = submission.css('::attr(data-url)').extract_first(),
                 internal_url = submission.css('::attr(data-permalink)').extract_first(),
                 author = submission.css('::attr(data-author)').extract_first(),
-                punctuation = submission.css('::attr(data-score)').extract_first(),
+                punctuation = int(submission.css('::attr(data-score)').extract_first()),
                 creation_date = submission.css('p.tagline time.live-timestamp::attr(title)').extract_first(),
-                number_of_comments = submission.css('::attr(data-comments-count)').extract_first()
+                number_of_comments = int(submission.css('::attr(data-comments-count)').extract_first())
             )
         self.current_page += 1
         if self.current_page < self.n:

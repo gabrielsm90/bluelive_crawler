@@ -1,24 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import pymongo
+from dao.mongo import SubmissionsMongoDAO
 
 
 class MongoWriterPipeline(object):
 
-    collection_name = 'submissions'
-
     def open_spider(self, spider):
-        self.client = pymongo.MongoClient('mongodb://public:public@ds119028.mlab.com:19028/news_crawler')
-        self.db = self.client['news_crawler']
+        self.mongo_connection = SubmissionsMongoDAO()
 
     def close_spider(self, spider):
-        self.client.close()
+        self.mongo_connection.close_connection()
 
     def process_item(self, item, spider):
-        filter = {
-            'title':item['title'],
-            'author':item['author']
-        }
-        if self.db[self.collection_name].replace_one(filter, dict(item)).modified_count == 0:
-            self.db[self.collection_name].insert_one(dict(item))
+        self.mongo_connection.insert_update_submission(item)
         return item
