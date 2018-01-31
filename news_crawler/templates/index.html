@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blueliv - News Crawler</title>
+</head>
+<body>
+
+    <h1>News Crawler Project</h1>
+    <p>Listed below, you'll find access to all of REST services created:</p>
+    <ul>
+        <li><a href="/submissions_point_any_kind">Top 10 Submissions by point of any kind</a></li>
+        <li><a href="/submissions_point_internal_discussion">Top 10 Submissions by points (Internal Discussion)</a></li>
+        <li><a href="/submissions_point_external_link">Top 10 Submissions by points (External Link)</a></li>
+        <li><a href="/submissions_comments_any_kind">Top 10 Commented Submissions of any kind</a></li>
+        <li><a href="/submissions_comments_internal_discussion">Top 10 Commented Submissions (Internal Discussion)</a></li>
+        <li><a href="/submissions_comments_external_link">Top 10 Commented Submissions (External Link)</a></li>
+        <li><a href="/top_submitters">Top 10 Submitters</a></li>
+        <li><a href="/top_commenters">Top 10 Commenters</a></li>
+        <li><a href="/top_active_users">Top 10 Active Users</a></li>
+    </ul>
+    <p>
+        <form action="/posts_from_user" method="post">
+            Username: <input type="text" name="username" >
+            <input type="submit" name="button" value="All Posts From User">
+        </form>
+    </p>
+    <p>
+        <form action="/posts_user_commented" method="post">
+            Username: <input type="text" name="username" >
+            <input type="submit" name="button" value="All Posts User Commented">
+        </form>
+    </p>
+
+</body>
+</html>

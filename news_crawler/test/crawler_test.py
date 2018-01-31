@@ -19,7 +19,7 @@ def run_spider(n):
 
 def test_crawler_insertions(mongo_db_collection):
     mongo_db_collection.drop()
-    run_spider(1)
+    run_spider(10)
     assert mongo_db_collection.find().count() > 0
 
 def test_n_not_integer():

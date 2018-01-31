@@ -10,3 +10,5 @@ class SubmissionItem(scrapy.Item):
     punctuation = scrapy.Field()
     creation_date = scrapy.Field()
     number_of_comments = scrapy.Field()
+    commenters = scrapy.Field()
+
