@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import Flask, jsonify, render_template, request
-from news_crawler.dao.mongo import SubmissionsMongoDAO
+from dao.mongo import SubmissionsMongoDAO
 
 app = Flask(__name__)
 
