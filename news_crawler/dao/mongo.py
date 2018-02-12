@@ -2,17 +2,40 @@
 
 import pymongo
 import operator
+import os
 from bson.son import SON
 
 
 class SubmissionsMongoDAO():
 
     def __init__(self):
-        self.client = pymongo.MongoClient('mongodb://public:public@ds119028.mlab.com:19028/news_crawler')
-        self.collection = self.client['news_crawler']['submissions']
+        self.client = pymongo.MongoClient(self.connection_url)
+        self.collection = self.client[os.environ['MONGO_INSTANCE']]['submissions']
+
+    @property
+    def connection_url(self):
+        return 'mongodb://{}:{}@{}/{}'.format(self.user, self.password, self.database_url, self.database_name)
+
+    @property
+    def user(self): return os.environ['MONGO_USER']
+
+    @property
+    def password(self): return os.environ['MONGO_PASSWORD']
+
+    @property
+    def database_name(self): return os.environ['MONGO_INSTANCE']
+
+    @property
+    def database_url(self): return os.environ['MONGO_URL']
 
     def close_connection(self):
         self.client.close()
+
+    def drop_current_collection(self):
+        self.collection.drop()
+
+    def submissions_count(self):
+        return self.collection.find().count()
 
     def insert_update_submission(self, submission_item):
         filter = {
