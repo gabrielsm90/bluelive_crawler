@@ -19,7 +19,7 @@ a user ou want to create one, don't hesitate on sending me the id so I can add
 in the project.
 
 
-DEPLOYMENT OF THE APPLICATION
+LOCAL DEPLOYMENT OF THE APPLICATION
 
 The application has two setup steps and two main processes:
 
@@ -39,8 +39,8 @@ directory is the root of the project (bluelive_crawler) are:
 	WINDOWS: python news_crawler\clean_database.py
 	
 3)
-	LINUX: python news_crawler/scrape_data.py <NUMBER OF PAGES THAT WILL BE SCRAPPED>
-	WINDOWS: python news_crawler/scrape_data.py <NUMBER OF PAGES THAT WILL BE SCRAPPED>
+	LINUX: python news_crawler/scrape_data.py N (NUMBER OF PAGES THAT WILL BE SCRAPPED)
+	WINDOWS: python news_crawler/scrape_data.py n (NUMBER OF PAGES THAT WILL BE SCRAPPED)
 	
 4)
 	LINUX: python news_crawler/app.py
@@ -48,6 +48,16 @@ directory is the root of the project (bluelive_crawler) are:
 	
 	After this step, the application will be accessible at http://localhost:5000/
 	
+
+CLOUD DEPLOYMENT
+
+Using semaphore, after each push to master branch on this repository and passing all the
+tests, the application is deployed on a Heroku server.
+
+The app is accessible in the following url:
+
+https://blueliv-crawler.herokuapp.com/
+
 
 APPLICATION DETAILS
 
