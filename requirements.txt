@@ -12,3 +12,4 @@ Scrapy
 pytest
 pymongo
 flask
+gunicorn

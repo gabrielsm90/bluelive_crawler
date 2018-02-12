@@ -39,7 +39,7 @@ def test_get_top_active_users(mongo_dao):
     assert_execution(mongo_dao.get_top_active_users(10), mongo_dao)
 
 def test_get_posts_user(mongo_dao):
-    assert_execution(mongo_dao.get_posts_user('antirabbit'), mongo_dao)
+    assert_execution(mongo_dao.get_posts_user('aphoenix'), mongo_dao)
 
 def test_get_posts_commented_by_user(mongo_dao):
-    assert_execution(mongo_dao.get_posts_commented_by_user('Disco_Infiltrator'), mongo_dao)
+    assert_execution(mongo_dao.get_posts_commented_by_user('python_django'), mongo_dao)

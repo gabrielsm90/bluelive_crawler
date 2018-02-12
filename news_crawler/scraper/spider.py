@@ -49,14 +49,5 @@ class SubmissionsSpider(scrapy.Spider):
             if commenter:
                 commenters.append(comment.css('a.author.may-blank::text').extract_first())
         item['commenters'] = commenters
-        #authors_page = response.css('p.tagline a.author.may-blank::attr(href)').extract_first()
-        #request = scrapy.Request(authors_page, callback=self.get_user_karma)
-        #request.meta['item'] = item
         yield item
-
-    def get_user_karma(self, response):
-        item = response.meta['item']
-        dados = json.loads(response.css('script').extract_first()[31:-9])
-        karma = 1
-        a = 2
 
