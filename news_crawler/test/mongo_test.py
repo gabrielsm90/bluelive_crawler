@@ -16,7 +16,7 @@ def import_test_data(mongo_dao):
     try:
         import_file = open("data_export", encoding="utf8")
     except:
-        import_file = open("news_crawler\\test\\data_export", encoding="utf8")
+        import_file = open("news_crawler/test/data_export", encoding="utf8")
     text = json_util.dumps(import_file.readlines())
     import_file.close()
     result = [json_util.loads(submission) for submission in json_util.loads(text)]
