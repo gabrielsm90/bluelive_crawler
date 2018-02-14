@@ -52,7 +52,7 @@ def get_10_top_active_users():
 
 @app.route('/posts_from_user', methods=['POST'])
 def get_posts_from_user():
-    return get_result_set('get_posts_user', request.form['username'])
+    return get_result_set('get_submissions_user', request.form['username'])
 
 @app.route('/posts_user_commented', methods=['POST'])
 def get_posts_commented_by_user():

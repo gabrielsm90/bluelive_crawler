@@ -15,12 +15,13 @@ def run_spider(n):
     crawler.crawl(SubmissionsSpider, n=n)
     crawler.start()
 
-def test_crawler_insertions(mongo_dao):
-    mongo_dao.drop_current_collection()
-    assert mongo_dao.submissions_count() == 0
-    run_spider(2)
-    assert mongo_dao.submissions_count() > 0
-
 def test_n_not_integer():
     crawlResult = CrawlerProcess().crawl(SubmissionsSpider, n='String')
     assert isinstance(crawlResult.result, Failure)
+
+@pytest.mark.first
+def test_crawler_insertions(mongo_dao):
+    mongo_dao.drop_submissions_collection()
+    assert mongo_dao.submissions_count() == 0
+    run_spider(3)
+    assert mongo_dao.submissions_count() > 0
